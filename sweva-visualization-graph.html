@@ -3495,13 +3495,9 @@ return /******/ (function(modules) { // webpackBootstrap
             	var message = event.data;
             	//parse data signal into JSON Object
 
-
-            	//if MQTT message
  				if(message.indexOf("clientid") !== -1){
 
  				var obj = JSON.parse(message);
-
- 				self.sigma.emptyGraph();
 
 				try{
 
@@ -3532,7 +3528,7 @@ return /******/ (function(modules) { // webpackBootstrap
 							var containstopic = false;
 							for(d = 0; d<this.data.nodes.length;d++){
 								if(this.data.nodes[d].id==topicid){
-									containsstopic = true;
+									containstopic = true;
 								}
 							}
 							
@@ -3793,6 +3789,9 @@ return /******/ (function(modules) { // webpackBootstrap
                         node.x = Math.random()*this.data.nodes.length;
                         node.y = Math.random()*this.data.nodes.length;
                     }
+                   	if (node.label.indexOf("topic")!==-1) {
+                   		node.color = '#28ddd7';
+                   	}
                     if (typeof node.size === 'undefined') {
                         node.size = 1;
                     }
